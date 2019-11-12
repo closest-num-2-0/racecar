@@ -1,0 +1,23 @@
+<launch>
+
+  <node name="movement" pkg="lanekeep" type="movement_test_i2c.py" />
+  
+	<!--
+  <node name="camera" pkg="usb_cam" type="usb_cam_node" output="screen">
+		<param name="video_device" value="/dev/video0" />
+		<param name="image_width" value="640" />
+		<param name="image_height" value="480" />
+		<param name="pixel_format" value="yuyv" />
+		<param name="framerate" value="30" />
+		<param name="camera_frame_id" value="usb_cam" />
+		<param name="io_method" value="mmap" />
+  </node>
+  -->
+  
+  <node pkg="rosserial_python" type="serial_node.py" name="arduino_node">
+		<!-- /dev/ttyUSB0 for nano /dev/ttyACM0 for mega-->
+		<param name="port" type="string" value="/dev/ttyUSB0" />
+		<param name="baud" type="string" value="57600" />
+  </node>
+
+</launch>
